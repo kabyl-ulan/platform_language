@@ -1,7 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 
-function App() {
-  return <>Ulan</>;
+class App extends Component {
+  render(): React.ReactNode {
+    return <>Ulan</>;
+  }
 }
 
 export default App;
