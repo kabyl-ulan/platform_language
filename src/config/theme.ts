@@ -10,6 +10,6 @@ export const theme = extendTheme({
     md: "768px",
     lg: "993px",
     xl: "1280px",
-    "2xl": "1536",
+    "2xl": "1536px",
   },
 });
