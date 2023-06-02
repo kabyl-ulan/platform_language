@@ -1,8 +1,17 @@
-import React, { Component } from "react";
+import { Component, ReactNode } from "react";
+import { Route, Routes } from "react-router-dom";
+
+import { HomePage } from "./pages";
 
 class App extends Component {
-  render(): React.ReactNode {
-    return <>Ulan</>;
+  render(): ReactNode {
+    return (
+      <>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+      </>
+    );
   }
 }
 
