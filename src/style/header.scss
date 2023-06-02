@@ -1,0 +1,21 @@
+#header {
+  .item {
+    &:hover {
+      transition: 0.2s;
+      &::after {
+        transition: 0.4s all;
+        width: 100%;
+      }
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5;
+      left: 0;
+      display: block;
+      width: 0;
+      height: 2px;
+      background-color: #ffffff;
+    }
+  }
+}

@@ -1,3 +1,5 @@
+@import "./header.scss";
+
 * {
   margin: 0;
   padding: 0;
@@ -18,6 +20,8 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  background: #303146;
+  color: #ffffff;
 }
 
 .main {
