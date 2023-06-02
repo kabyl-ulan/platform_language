@@ -1,7 +1,8 @@
 import { Component, ReactNode } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import { HomePage } from "./pages";
+//local
+import { AllCoursePage, HomePage } from "./pages";
 
 class App extends Component {
   render(): ReactNode {
@@ -9,6 +10,7 @@ class App extends Component {
       <>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/all-course" element={<AllCoursePage />} />
         </Routes>
       </>
     );
