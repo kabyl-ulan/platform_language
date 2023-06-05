@@ -12,3 +12,6 @@ export { default as Btn } from "./Btn";
 
 //Inputs
 export { default as Inputs } from "./Inputs";
+
+//Eye input
+export { default as EyeInput } from "./EyeInput";
