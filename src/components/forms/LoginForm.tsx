@@ -10,8 +10,7 @@ import {
 import { useForm, SubmitHandler } from "react-hook-form";
 
 //local
-import { Btn, Containers, Inputs } from "../ui";
-import EyeInput from "../ui/EyeInput";
+import { Btn, Containers, EyeInput, Inputs } from "../ui";
 
 type InputsLogin = {
   email: string;
