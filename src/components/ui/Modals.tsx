@@ -13,7 +13,9 @@ class Modals extends Component<ModalComponents> {
     return (
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>{children}</ModalContent>
+        <ModalContent maxW={{ base: "90%", xm: "350px", sm: "450px" }}>
+          {children}
+        </ModalContent>
       </Modal>
     );
   }
