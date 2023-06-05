@@ -9,3 +9,6 @@ export { default as AllCourseHero } from "./components-all-course/AllCourseHero"
 
 //components CoursesInById Page
 export { default as CoursesInById } from "./components-coursesInById/CoursesInById";
+
+//components Course DetailPage
+export { default as DetailCourse } from "./detailCours/DetailCourse";
