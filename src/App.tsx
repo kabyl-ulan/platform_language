@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 //local
 import { AllCoursePage, HomePage } from "./pages";
+import LoginPage from "./pages/LoginPage";
 
 class App extends Component {
   render(): ReactNode {
@@ -11,6 +12,7 @@ class App extends Component {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/all-course" element={<AllCoursePage />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
       </>
     );

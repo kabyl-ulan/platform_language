@@ -9,3 +9,6 @@ export { default as Images } from "./Images";
 
 //Buttons
 export { default as Btn } from "./Btn";
+
+//Inputs
+export { default as Inputs } from "./Inputs";
