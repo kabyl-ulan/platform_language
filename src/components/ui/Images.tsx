@@ -9,11 +9,21 @@ type ImagesComponent = {
   maxWidth?: string | any;
   cursor?: string;
   _hover?: any;
+  borderRadius?: string;
 };
 
 class Images extends Component<ImagesComponent> {
   render(): ReactNode {
-    const { source, alt, width, height, maxWidth, cursor, _hover } = this.props;
+    const {
+      source,
+      alt,
+      width,
+      height,
+      maxWidth,
+      cursor,
+      _hover,
+      borderRadius,
+    } = this.props;
     return (
       <Image
         src={source}
@@ -24,6 +34,7 @@ class Images extends Component<ImagesComponent> {
         transition="transform 0.4s"
         cursor={cursor}
         _hover={_hover}
+        borderRadius={borderRadius}
       />
     );
   }

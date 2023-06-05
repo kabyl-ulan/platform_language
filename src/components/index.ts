@@ -15,3 +15,9 @@ export { default as DetailCourse } from "./detailCours/DetailCourse";
 
 //component SearchPage
 export { default as ResultAfterSearch } from "./result-after-search/ResultAfterSearch";
+
+//components AllTeachersPage
+export { default as AllTeachersHero } from "./components-all-teachers/AllTeachersHero";
+
+//components DetailTecherPage
+export { default as DetailTeacher } from "./detailTeacher/DetailTeacher";

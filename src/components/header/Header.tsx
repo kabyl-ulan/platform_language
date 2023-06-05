@@ -83,6 +83,13 @@ class Header extends Component<{}, IHeaderCategory> {
                   </Text>
                 </NavLink>
               </Box>
+              <Box mx="15px">
+                <NavLink to="/all-teachers">
+                  <Text position="relative" className="item">
+                    Преподаватели
+                  </Text>
+                </NavLink>
+              </Box>
             </Box>
             <Box display="flex" alignItems="center">
               <SearchComponent />
