@@ -18,6 +18,7 @@ type InputsRegister = {
   phone: string;
   password: string;
   confirm_password: string;
+  patronymic: string;
 };
 
 const RegisterForm = () => {
@@ -61,6 +62,13 @@ const RegisterForm = () => {
             </Text>
             {renderInputField("Имя*", "name", "text", "name")}
             {renderInputField("Фамилия*", "surname", "text", "surname")}
+            {renderInputField(
+              "Отчество",
+              "patronymic",
+              "text",
+              "patronymic",
+              false
+            )}
             {renderInputField("Электронная почта*", "email", "email", "email")}
             {renderInputField("Телефон", "phone", "text", "phone", false)}
             <FormLabel>
