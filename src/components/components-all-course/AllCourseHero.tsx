@@ -1,19 +1,42 @@
 import { Component } from "react";
 import { ReactNode } from "react";
+import { Box } from "@chakra-ui/react";
 
 //local
 import { Containers } from "../ui";
 import { CourseCard } from "../cards";
-import { Box } from "@chakra-ui/react";
+import { Pagination } from "../pagination";
 
-class AllCourseHero extends Component {
+type IAllCourseHeroComponent = {
+  currentPage: number;
+};
+
+class AllCourseHero extends Component<{}, IAllCourseHeroComponent> {
+  constructor(props: IAllCourseHeroComponent) {
+    super(props);
+    this.state = {
+      currentPage: 1,
+    };
+  }
   render(): ReactNode {
+    const size = 1;
     return (
       <section>
         <Containers>
           <Box py="10px">
             <CourseCard />
             <CourseCard />
+            <Box display="flex" justifyContent="center">
+              <Pagination
+                className="pagination-bar"
+                currentPage={this.state.currentPage}
+                totalCount={15}
+                pageSize={size}
+                onPageChange={(page: number) => {
+                  this.setState({ currentPage: page });
+                }}
+              />
+            </Box>
           </Box>
         </Containers>
       </section>
