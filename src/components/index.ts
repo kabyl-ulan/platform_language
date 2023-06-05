@@ -12,3 +12,6 @@ export { default as CoursesInById } from "./components-coursesInById/CoursesInBy
 
 //components Course DetailPage
 export { default as DetailCourse } from "./detailCours/DetailCourse";
+
+//component SearchPage
+export { default as ResultAfterSearch } from "./result-after-search/ResultAfterSearch";

@@ -7,6 +7,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import CoursesInByIdPage from "./pages/CoursesInByIdPage";
 import DetailCoursePage from "./pages/DetailCoursePage";
+import SearchPage from "./pages/SearchPage";
 
 class App extends Component {
   render(): ReactNode {
@@ -22,6 +23,7 @@ class App extends Component {
             path="/courseDetail/:idCourse"
             element={<DetailCoursePage />}
           />
+          <Route path="/search-result/:search" element={<SearchPage />} />
         </Routes>
       </>
     );
