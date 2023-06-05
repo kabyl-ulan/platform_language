@@ -1,15 +1,17 @@
-import React from "react";
-import { Text } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { Box, Text } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 
 //local
 import { Containers } from "../ui";
 import { CourseCard } from "../cards";
 import { SearchInput } from "../forms";
+import { Pagination } from "../pagination";
 
 const ResultAfterSearch = () => {
   const { search } = useParams();
-
+  const size = 1;
+  const [currentPage, setCurrentPage] = useState<number>(1);
   return (
     <section>
       <Containers>
@@ -18,6 +20,17 @@ const ResultAfterSearch = () => {
         <Text fontSize="28px">Вы искали: {search}</Text>
         <CourseCard />
         <CourseCard />
+        <Box display="flex" justifyContent="center">
+          <Pagination
+            className="pagination-bar"
+            currentPage={currentPage}
+            totalCount={15}
+            pageSize={size}
+            onPageChange={(page: number) => {
+              setCurrentPage(page);
+            }}
+          />
+        </Box>
       </Containers>
     </section>
   );
