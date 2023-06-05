@@ -6,3 +6,6 @@ export { default as HeroHome } from "./components-home/HeroHome";
 
 //components AllCourse Page
 export { default as AllCourseHero } from "./components-all-course/AllCourseHero";
+
+//components CoursesInById Page
+export { default as CoursesInById } from "./components-coursesInById/CoursesInById";
