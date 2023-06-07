@@ -9,6 +9,7 @@ import { MdLanguage, MdOutlineCategory } from "react-icons/md";
 import { GoClock } from "react-icons/go";
 import { AiOutlinePlayCircle } from "react-icons/ai";
 import { CiCalendarDate } from "react-icons/ci";
+import { FaChalkboardTeacher } from "react-icons/fa";
 
 const DetailCourse = () => {
   const { idCourse } = useParams();
@@ -29,42 +30,50 @@ const DetailCourse = () => {
               cursor="pointer"
             />
           </Box>
-          <Box maxW="800px" p="5px">
+          <Box maxW="850px" p="5px">
             <Box
               display="flex"
               alignItems="center"
               justifyContent="space-between"
+              flexWrap="wrap"
             >
               <Box display="flex" alignItems="center">
-                <GoClock />
+                <GoClock style={{ fontSize: "28px" }} />
                 <Box ml="5px">
                   <Text>Продолжительность</Text>
                   <Text>05:39:50</Text>
                 </Box>
               </Box>
               <Box display="flex" alignItems="center">
-                <MdOutlineCategory />
+                <MdOutlineCategory style={{ fontSize: "28px" }} />
                 <Box ml="5px">
                   <Text>Категория</Text>
                   <Text>JavaScript</Text>
                 </Box>
               </Box>
               <Box display="flex" alignItems="center">
-                <AiOutlinePlayCircle />
+                <FaChalkboardTeacher style={{ fontSize: "28px" }} />
+                <Box ml="5px">
+                  <Text>Преподаватель</Text>
+                  <Text>Каримбаев Т.Т.</Text>
+                </Box>
+              </Box>
+              <Box display="flex" alignItems="center">
+                <AiOutlinePlayCircle style={{ fontSize: "28px" }} />
                 <Box ml="5px">
                   <Text>Количество уроков</Text>
                   <Text>10 видео</Text>
                 </Box>
               </Box>
               <Box display="flex" alignItems="center">
-                <CiCalendarDate />
+                <CiCalendarDate style={{ fontSize: "28px" }} />
                 <Box ml="5px">
                   <Text>Дата добавления</Text>
                   <Text>25.05.2023</Text>
                 </Box>
               </Box>
               <Box display="flex" alignItems="center">
-                <MdLanguage />
+                <MdLanguage style={{ fontSize: "28px" }} />
                 <Box ml="5px">
                   <Text>Язык</Text>
                   <Text>Русский</Text>
