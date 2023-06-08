@@ -34,7 +34,7 @@ class SearchComponent extends Component<{}, ISearchComponentState> {
         <Box
           cursor="pointer"
           onClick={this.openModal}
-          fontSize="28px"
+          fontSize={{ base: "22px", xs: "28px" }}
           p="5px"
           mx="5px"
         >
