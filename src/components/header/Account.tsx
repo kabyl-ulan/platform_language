@@ -17,9 +17,9 @@ const Account: FC = () => {
           <Box
             ml={{ base: "0", xs: "15px", lg: "20px" }}
             key={idx}
-            bg="blue.800"
+            bg={{ xs: "blue.800" }}
             rounded="lg"
-            p="5px 10px"
+            p={{ xs: "5px 10px" }}
             fontWeight="600"
           >
             <NavLink to={nav.link}>
