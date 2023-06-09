@@ -20,7 +20,7 @@ const ResultAfterSearch = () => {
         <Text fontSize="28px">Вы искали: {search}</Text>
         <CourseCard />
         <CourseCard />
-        <Box display="flex" justifyContent="center">
+        <Box display="flex" justifyContent="center" py="20px">
           <Pagination
             className="pagination-bar"
             currentPage={currentPage}

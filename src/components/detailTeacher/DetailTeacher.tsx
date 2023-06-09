@@ -16,15 +16,16 @@ const DetailTeacher = () => {
   return (
     <section>
       <Containers>
-        <Box display="flex">
+        <Box display="flex" pt="10px" flexWrap={{ base: "wrap", xs: "nowrap" }}>
           <Box width="300px">
             <Images
               source="https://dpo.online/wp-content/uploads/2018/06/prepodavatel-spetsialnyh-distsiplin.jpg"
-              alt="no;kioppk"
+              alt="teacher_photo"
+              maxWidth="100%"
               borderRadius="lg"
             />
           </Box>
-          <Box>
+          <Box w="100%" p={{ base: "0", xs: "0 10px" }}>
             <Stack my="2" px="5px" spacing="3">
               <Heading size="md">Каримбаев Турсунжан Турашевич</Heading>
               <Text>

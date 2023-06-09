@@ -23,13 +23,17 @@ class AllTeachersHero extends Component<{}, IAllCourseHeroComponent> {
     return (
       <section>
         <Containers>
-          <Box display="flex" justifyContent="space-between" flexWrap="wrap">
+          <Box
+            display="flex"
+            justifyContent={{ base: "space-around", xs: "space-between" }}
+            flexWrap="wrap"
+          >
             <TeacherCard />
             <TeacherCard />
             <TeacherCard />
             <TeacherCard />
           </Box>
-          <Box display="flex" justifyContent="center">
+          <Box display="flex" justifyContent="center" py="20px">
             <Pagination
               className="pagination-bar"
               currentPage={this.state.currentPage}

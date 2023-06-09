@@ -26,7 +26,7 @@ class AllCourseHero extends Component<{}, IAllCourseHeroComponent> {
           <Box py="10px">
             <CourseCard />
             <CourseCard />
-            <Box display="flex" justifyContent="center">
+            <Box display="flex" justifyContent="center" py="20px">
               <Pagination
                 className="pagination-bar"
                 currentPage={this.state.currentPage}
