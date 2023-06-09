@@ -2,6 +2,7 @@ import { RouteProps } from "react-router-dom";
 
 //pages
 import {
+  AdminPage,
   AllCoursePage,
   AllTeachersPage,
   CoursesInByIdPage,
@@ -50,6 +51,10 @@ export const routes: RouteProps[] = [
   {
     path: "/teachers/:idTeacher",
     element: <TeachersDetailPage />,
+  },
+  {
+    path: "/admin",
+    element: <AdminPage />,
   },
   {
     path: "*",

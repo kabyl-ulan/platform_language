@@ -8,3 +8,4 @@ export { default as CoursesInByIdPage } from "./CoursesInByIdPage";
 export { default as DetailCoursePage } from "./DetailCoursePage";
 export { default as TeachersDetailPage } from "./TeachersDetailPage";
 export { default as NotFound } from "./NotFound";
+export { default as AdminPage } from "./AdminPage";

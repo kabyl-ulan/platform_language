@@ -21,3 +21,6 @@ export { default as AllTeachersHero } from "./components-all-teachers/AllTeacher
 
 //components DetailTecherPage
 export { default as DetailTeacher } from "./detailTeacher/DetailTeacher";
+
+//components Admin Page
+export { default as AdminMenu } from "./admin/AdminMenu";

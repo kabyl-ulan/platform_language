@@ -36,7 +36,7 @@ const LoginForm = () => {
           <Box
             maxW="500px"
             mx="auto"
-            h="80vh"
+            h="70vh"
             display="flex"
             alignItems="center"
           >
