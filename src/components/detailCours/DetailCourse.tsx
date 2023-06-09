@@ -1,8 +1,9 @@
-import React from "react";
+import { FC, useEffect } from "react";
 import { Box, Text, Textarea } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 
 //local
+import "./youtube_video.scss";
 import CourseImage from "../../assets/img/javaScript.png";
 import { Btn, Containers, Images } from "../ui";
 import { MdLanguage, MdOutlineCategory } from "react-icons/md";
@@ -11,30 +12,33 @@ import { AiOutlinePlayCircle } from "react-icons/ai";
 import { CiCalendarDate } from "react-icons/ci";
 import { FaChalkboardTeacher } from "react-icons/fa";
 
-const DetailCourse = () => {
+const DetailCourse: FC = () => {
   const { idCourse } = useParams();
-  console.log(idCourse);
+
+  useEffect(() => {
+    console.log(idCourse);
+  }, [idCourse]);
   return (
     <section>
       <Containers>
         <Text fontSize="28px">
           Название курса: Интенсив JavaScript для всех!
         </Text>
-        <Box display="flex" flexDir={{ base: "column", sm: "row" }} my="10px">
-          <Box overflow="hidden">
+        <Box display="flex" flexDir={{ base: "column", xs: "row" }} my="10px">
+          <Box overflow="hidden" w={{ base: "100%", xs: "350px" }}>
             <Images
               source={CourseImage}
               alt="course_image"
-              maxWidth={{ base: "100%", sm: "350px" }}
+              width="100%"
               _hover={{ transform: "scale(1.1)" }}
               cursor="pointer"
             />
           </Box>
-          <Box maxW="850px" p="5px">
+          <Box w="100%" p={{ base: "8px 0", xs: "0 8px" }}>
             <Box
               display="flex"
               alignItems="center"
-              justifyContent="space-between"
+              justifyContent={{ base: "space-around", lg: "space-between" }}
               flexWrap="wrap"
             >
               <Box display="flex" alignItems="center">
@@ -90,18 +94,17 @@ const DetailCourse = () => {
             </Text>
           </Box>
         </Box>
-        <Box my="10px" display="flex">
+        <Box my="10px" display="flex" flexDir={{ base: "column", xs: "row" }}>
           <Box>
             <iframe
-              width="760"
-              height="415"
               src="https://www.youtube.com/embed/bMRosz1JZOA"
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
+              className="youtube_video"
             ></iframe>
           </Box>
-          <Box w="450px" h="415px" px="10px" overflowY="auto">
+          <Box w={{ xs: "450px" }} h="415px" px="10px" overflowY="auto">
             <Box borderBottom="1px" mb="10px">
               <Box display="flex" justifyContent="space-between">
                 <Text>Урок 1</Text>
@@ -133,13 +136,6 @@ const DetailCourse = () => {
             <Box borderBottom="1px" mb="10px">
               <Box display="flex" justifyContent="space-between">
                 <Text>Урок 5</Text>
-                <Text>00:09:10</Text>
-              </Box>
-              <Text>Что такое JavaScript?</Text>
-            </Box>
-            <Box borderBottom="1px" mb="10px">
-              <Box display="flex" justifyContent="space-between">
-                <Text>Урок 6</Text>
                 <Text>00:09:10</Text>
               </Box>
               <Text>Что такое JavaScript?</Text>
