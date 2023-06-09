@@ -18,6 +18,21 @@
     font-weight: 700;
     min-width: 32px;
 
+    @media screen and (max-width: 400px) {
+      height: 28px;
+      line-height: 1;
+      min-width: 28px;
+      font-size: 16px;
+      margin: auto 3px;
+    }
+
+    @media screen and (max-width: 340px) {
+      height: 26px;
+      min-width: 26px;
+      font-size: 15px;
+      margin: auto 2px;
+    }
+
     &.dots:hover {
       background-color: transparent;
       cursor: default;
@@ -42,6 +57,10 @@
         font-size: 18px;
         border-right: 0.14em solid rgba(255, 255, 255, 0.87);
         border-top: 0.14em solid rgba(255, 255, 255, 0.87);
+
+        @media screen and (max-width: 400px) {
+          font-size: 16px;
+        }
       }
 
       &.left {
