@@ -1,4 +1,10 @@
 #header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 30;
+  background: #303146;
   .item {
     &:hover {
       transition: 0.2s;
