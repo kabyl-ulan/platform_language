@@ -78,6 +78,19 @@
     "id": 4,
     "categoryName": "Английский язык",
     "image": "",
-    "categoryResponse": []
+    "categoryResponse": [
+      {
+        "id": 41,
+        "categoryName": "Начинающие",
+        "image": "",
+        "categoryResponse": []
+      },
+      {
+        "id": 42,
+        "categoryName": "Продвинутое",
+        "image": "",
+        "categoryResponse": []
+      }
+    ]
   }
 ]

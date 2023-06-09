@@ -6,6 +6,7 @@ import SearchComponent from "./SearchComponent";
 import Account from "./Account";
 import CategoryDropDown from "./CategoryDropDown";
 import NavAll from "./NavAll";
+import AccordionMenu from "./AccordionMenu";
 
 type IBurgerBtn = {
   openBurger: boolean;
@@ -17,7 +18,7 @@ class Navigation extends Component<IBurgerBtn> {
     return (
       <Box
         display="flex"
-        justifyContent="space-between"
+        justifyContent={{ base: "space-around", xs: "space-between" }}
         position={{ base: "fixed", xs: "static" }}
         top={{ base: "50px", xs: "0" }}
         bottom="0"
@@ -36,6 +37,9 @@ class Navigation extends Component<IBurgerBtn> {
             <CategoryDropDown />
           </Box>
           <NavAll />
+        </Box>
+        <Box display={{ base: "block", xs: "none" }}>
+          <AccordionMenu />
         </Box>
         <Box display="flex" alignItems="center">
           <Box display={{ base: "none", xs: "block" }}>
