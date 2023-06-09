@@ -56,7 +56,7 @@ const RegisterForm = () => {
     <section>
       <Containers>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Box maxW="500px" mx="auto">
+          <Box maxW="500px" mx="auto" pt="25px">
             <Text textAlign="center" fontSize="30px">
               Регистрация
             </Text>

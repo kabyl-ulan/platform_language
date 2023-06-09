@@ -33,33 +33,41 @@ const LoginForm = () => {
     <section>
       <Containers>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Box maxW="500px" mx="auto">
-            <Text textAlign="center" fontSize="30px">
-              Авторизация
-            </Text>
-            <FormLabel>
-              Электронная почта*
-              <Inputs
-                register={register("email", { required: true })}
-                type="email"
-                placeholder="email"
-              />
-            </FormLabel>
-            <FormLabel>
-              Пароль*
-              <InputGroup>
+          <Box
+            maxW="500px"
+            mx="auto"
+            h="80vh"
+            display="flex"
+            alignItems="center"
+          >
+            <Box>
+              <Text textAlign="center" fontSize="30px">
+                Авторизация
+              </Text>
+              <FormLabel>
+                Электронная почта*
                 <Inputs
-                  register={register("password", { required: true })}
-                  type={eye ? "text" : "password"}
-                  placeholder="password"
+                  register={register("email", { required: true })}
+                  type="email"
+                  placeholder="email"
                 />
-                <InputRightElement w="3rem">
-                  <EyeInput eyeIsShow={eye} setEyeIsShow={setEye} />
-                </InputRightElement>
-              </InputGroup>
-            </FormLabel>
-            <Box display="flex" justifyContent="center">
-              <Btn text="Войти" />
+              </FormLabel>
+              <FormLabel>
+                Пароль*
+                <InputGroup>
+                  <Inputs
+                    register={register("password", { required: true })}
+                    type={eye ? "text" : "password"}
+                    placeholder="password"
+                  />
+                  <InputRightElement w="3rem">
+                    <EyeInput eyeIsShow={eye} setEyeIsShow={setEye} />
+                  </InputRightElement>
+                </InputGroup>
+              </FormLabel>
+              <Box display="flex" justifyContent="center">
+                <Btn text="Войти" />
+              </Box>
             </Box>
           </Box>
         </form>
