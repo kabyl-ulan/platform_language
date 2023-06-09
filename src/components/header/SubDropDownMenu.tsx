@@ -24,7 +24,7 @@ const SubDropDown = ({ elem }: { elem: any }) => {
         >
           <p
             style={{
-              padding: "3px 0",
+              padding: "3px",
               margin: "3px 0",
               whiteSpace: "nowrap",
             }}

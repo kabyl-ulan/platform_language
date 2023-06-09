@@ -14,7 +14,14 @@ const Account: FC = () => {
         flexDirection={{ base: "column", md: "row" }}
       >
         {accountNav.map((nav, idx) => (
-          <Box ml={{ base: "0", xs: "15px", lg: "20px" }} key={idx}>
+          <Box
+            ml={{ base: "0", xs: "15px", lg: "20px" }}
+            key={idx}
+            bg="blue.800"
+            rounded="lg"
+            p="5px 10px"
+            fontWeight="600"
+          >
             <NavLink to={nav.link}>
               <Text cursor="pointer" position="relative" className="item">
                 {nav.text}

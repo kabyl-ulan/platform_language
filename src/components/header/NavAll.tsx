@@ -15,7 +15,11 @@ class NavAll extends Component {
         flexDirection={{ base: "column", xs: "row" }}
       >
         {allNav.map((nav, idx) => (
-          <Box mx={{ base: "0", xs: "10px", lg: "15px" }} key={idx}>
+          <Box
+            mx={{ base: "0", xs: "10px", lg: "15px" }}
+            key={idx}
+            fontWeight="600"
+          >
             <NavLink to={nav.link}>
               <Text position="relative" className="item">
                 {nav.text}

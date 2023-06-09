@@ -6,7 +6,9 @@ const LogoHome: FC = () => {
   return (
     <Box>
       <Link to="/">
-        <Text mr="15px">Course</Text>
+        <Text mr="15px" fontWeight="600">
+          Course
+        </Text>
       </Link>
     </Box>
   );

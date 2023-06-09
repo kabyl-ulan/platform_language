@@ -39,6 +39,7 @@ const LoginForm = () => {
             h="70vh"
             display="flex"
             alignItems="center"
+            justifyContent="center"
           >
             <Box>
               <Text textAlign="center" fontSize="30px">

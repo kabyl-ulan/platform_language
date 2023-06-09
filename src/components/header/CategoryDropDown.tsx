@@ -39,7 +39,12 @@ class CategoryDropDown extends Component<{}, IHeaderCategory> {
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
       >
-        <Text position="relative" className="item" cursor="pointer">
+        <Text
+          position="relative"
+          className="item"
+          cursor="pointer"
+          fontWeight="600"
+        >
           Категории
         </Text>
         <IoIosArrowDown />
@@ -53,6 +58,7 @@ class CategoryDropDown extends Component<{}, IHeaderCategory> {
             width="150px"
             bg="white"
             color="black"
+            fontWeight="500"
           >
             <DropDownMenu categories={category} />
           </Box>
