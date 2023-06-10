@@ -23,7 +23,7 @@ class Navigation extends Component<IBurgerBtn> {
         top={{ base: "50px", xs: "0" }}
         bottom="0"
         py={{ base: "10px", xs: "0" }}
-        left={openBurger ? "0" : "100vw"}
+        left={openBurger ? "0" : "120vw"}
         transition="all 0.4s"
         alignItems="center"
         w="100%"
