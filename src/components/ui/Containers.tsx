@@ -8,7 +8,20 @@ type ContainerProps = {
 class Containers extends Component<ContainerProps> {
   render(): ReactNode {
     const { children } = this.props;
-    return <Container maxW="1220px">{children}</Container>;
+    return (
+      <Container
+        maxW={{
+          base: "100%",
+          md: "95%",
+          lg: "90%",
+          xl: "1220px",
+          "2xl": "1360px",
+        }}
+        mx="auto"
+      >
+        {children}
+      </Container>
+    );
   }
 }
 
