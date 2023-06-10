@@ -10,6 +10,9 @@ import {
 import { useForm, SubmitHandler } from "react-hook-form";
 
 //local
+import { setLocalStorage } from "../../utils/helpers/localStorage";
+import { KEY_TOKEN } from "../../utils/constans/key";
+import { PUBLIC_API } from "../../api/api";
 import { Btn, Containers, EyeInput, Inputs } from "../ui";
 
 type InputsLogin = {
@@ -25,9 +28,18 @@ const LoginForm = () => {
   } = useForm<InputsLogin>();
 
   const [eye, setEye] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const onSubmit: SubmitHandler<InputsLogin> = (data) => {
-    alert(JSON.stringify(data, null, 2));
+  const onSubmit: SubmitHandler<InputsLogin> = async (user) => {
+    try {
+      setLoading(true);
+      const { data } = await PUBLIC_API.post("user/login", { ...user });
+      alert(JSON.stringify(data, null, 2));
+      data?.token && setLocalStorage(KEY_TOKEN, data?.token);
+      setLoading(false);
+    } catch (e: any) {
+      setLoading(false);
+    }
   };
   return (
     <section>
@@ -67,7 +79,7 @@ const LoginForm = () => {
                 </InputGroup>
               </FormLabel>
               <Box display="flex" justifyContent="center">
-                <Btn text="Войти" />
+                <Btn text="Войти" isLoading={loading} />
               </Box>
             </Box>
           </Box>

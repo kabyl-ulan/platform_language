@@ -9,15 +9,18 @@ import {
 import { useForm, SubmitHandler } from "react-hook-form";
 
 //local
+import { setLocalStorage } from "../../utils/helpers/localStorage";
+import { KEY_TOKEN } from "../../utils/constans/key";
+import { PUBLIC_API } from "../../api/api";
 import { Btn, Containers, EyeInput, Inputs } from "../ui";
 
 type InputsRegister = {
   name: string;
   surname: string;
   email: string;
-  phone: string;
-  password: string;
-  confirm_password: string;
+  phoneNumber: string;
+  password1: string;
+  password2: string;
   patronymic: string;
 };
 
@@ -30,9 +33,19 @@ const RegisterForm = () => {
 
   const [eye, setEye] = useState<boolean>(false);
   const [eyeConfirm, setEyeConfirm] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const onSubmit: SubmitHandler<InputsRegister> = (data) => {
-    alert(JSON.stringify(data, null, 2));
+  const onSubmit: SubmitHandler<InputsRegister> = async (user) => {
+    try {
+      setLoading(true);
+      const { data } = await PUBLIC_API.post("user/register", { ...user });
+      console.log(data);
+      data?.token && setLocalStorage(KEY_TOKEN, data?.token);
+      setLoading(false);
+    } catch (e: any) {
+      console.log(e);
+      setLoading(false);
+    }
   };
 
   const renderInputField = (
@@ -70,12 +83,12 @@ const RegisterForm = () => {
               false
             )}
             {renderInputField("Электронная почта*", "email", "email", "email")}
-            {renderInputField("Телефон", "phone", "text", "phone", false)}
+            {renderInputField("Телефон", "phoneNumber", "text", "phone", false)}
             <FormLabel>
               Пароль*
               <InputGroup>
                 <Inputs
-                  register={register("password", { required: true })}
+                  register={register("password1", { required: true })}
                   type={eye ? "text" : "password"}
                   placeholder="password"
                 />
@@ -88,7 +101,7 @@ const RegisterForm = () => {
               Подтвердить пароль*
               <InputGroup>
                 <Inputs
-                  register={register("confirm_password", { required: true })}
+                  register={register("password2", { required: true })}
                   type={eyeConfirm ? "text" : "password"}
                   placeholder="confirm password"
                 />
@@ -101,7 +114,7 @@ const RegisterForm = () => {
               </InputGroup>
             </FormLabel>
             <Box display="flex" justifyContent="center">
-              <Btn text="Регистрация" />
+              <Btn text="Регистрация" isLoading={loading} />
             </Box>
           </Box>
         </form>
