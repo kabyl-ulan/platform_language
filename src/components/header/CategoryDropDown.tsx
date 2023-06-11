@@ -1,71 +1,58 @@
 import { Box, Text } from "@chakra-ui/react";
-import React, { Component, ReactNode } from "react";
+import React, { FC, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
 //local
+import { useGetCategoryListQuery } from "../../redux/api";
 import DropDownMenu from "./DropDownMenu";
-import category from "./Category.json";
 
-interface IHeaderCategory {
-  isShown: boolean;
-  isShownSub: boolean;
-}
+const CategoryDropDown: FC = () => {
+  const [isShown, setIsShown] = useState(false);
+  const { data } = useGetCategoryListQuery();
 
-class CategoryDropDown extends Component<{}, IHeaderCategory> {
-  constructor(props: IHeaderCategory) {
-    super(props);
-    this.state = {
-      isShown: false,
-      isShownSub: false,
-    };
-  }
-
-  handleMouseEnter = () => {
-    this.setState({ isShown: true });
+  const handleMouseEnter = () => {
+    setIsShown(true);
   };
 
-  handleMouseLeave = () => {
-    this.setState({ isShown: false });
+  const handleMouseLeave = () => {
+    setIsShown(false);
   };
-  render(): ReactNode {
-    const _isShown = this.state.isShown;
 
-    return (
-      <Box
-        display="flex"
-        alignItems="center"
-        mx="15px"
+  return (
+    <Box
+      display="flex"
+      alignItems="center"
+      mx="15px"
+      position="relative"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <Text
         position="relative"
-        onMouseEnter={this.handleMouseEnter}
-        onMouseLeave={this.handleMouseLeave}
+        className="item"
+        cursor="pointer"
+        fontWeight="600"
       >
-        <Text
-          position="relative"
-          className="item"
-          cursor="pointer"
-          fontWeight="600"
+        Категории
+      </Text>
+      <IoIosArrowDown />
+      {!!isShown && (
+        <Box
+          position="absolute"
+          top="25px"
+          left="0"
+          pt="5px"
+          zIndex="35"
+          width="150px"
+          bg="white"
+          color="black"
+          fontWeight="500"
         >
-          Категории
-        </Text>
-        <IoIosArrowDown />
-        {!!_isShown && (
-          <Box
-            position="absolute"
-            top="25px"
-            left="0"
-            pt="5px"
-            zIndex="35"
-            width="150px"
-            bg="white"
-            color="black"
-            fontWeight="500"
-          >
-            <DropDownMenu categories={category} />
-          </Box>
-        )}
-      </Box>
-    );
-  }
-}
+          {!!data && <DropDownMenu categories={data} />}
+        </Box>
+      )}
+    </Box>
+  );
+};
 
 export default CategoryDropDown;

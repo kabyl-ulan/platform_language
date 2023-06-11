@@ -4,8 +4,9 @@ import { Box } from "@chakra-ui/react";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 
 import DropDownMenu from "./DropDownMenu";
+import { ICategory } from "../../redux/api";
 
-const SubDropDown = ({ elem }: { elem: any }) => {
+const SubDropDown = ({ elem }: { elem: ICategory }) => {
   const [isShown, setIsShown] = useState(false);
   return (
     <div
@@ -31,7 +32,7 @@ const SubDropDown = ({ elem }: { elem: any }) => {
           >
             {elem.categoryName}
           </p>
-          {elem.categoryResponse && elem.categoryResponse.length === 0 ? (
+          {elem.subCategoryResponses.length === 0 ? (
             ""
           ) : isShown ? (
             <IoIosArrowDown />
@@ -40,7 +41,7 @@ const SubDropDown = ({ elem }: { elem: any }) => {
           )}
         </Box>
       </Link>
-      {isShown && elem.categoryResponse && elem.categoryResponse.length > 0 && (
+      {isShown && elem.subCategoryResponses.length > 0 && (
         <div
           style={{
             position: "absolute",
@@ -52,8 +53,8 @@ const SubDropDown = ({ elem }: { elem: any }) => {
             width: "150px",
           }}
         >
-          {elem.categoryResponse && elem.categoryResponse.length > 0 && (
-            <DropDownMenu categories={elem.categoryResponse} />
+          {elem.subCategoryResponses.length > 0 && (
+            <DropDownMenu categories={elem.subCategoryResponses} />
           )}
         </div>
       )}
