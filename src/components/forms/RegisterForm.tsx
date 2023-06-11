@@ -12,7 +12,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { setLocalStorage } from "../../utils/helpers/localStorage";
 import { KEY_TOKEN } from "../../utils/constans/key";
 import { PUBLIC_API } from "../../api/api";
-import { Btn, Containers, EyeInput, Inputs } from "../ui";
+import { Btn, Containers, EyeInput, Inputs, LoginOrRegister } from "../ui";
 
 type InputsRegister = {
   name: string;
@@ -116,6 +116,11 @@ const RegisterForm = () => {
             <Box display="flex" justifyContent="center">
               <Btn text="Регистрация" isLoading={loading} />
             </Box>
+            <LoginOrRegister
+              quation="У есть аккаунт?"
+              text="Авторизоваться"
+              navigate={"/login"}
+            />
           </Box>
         </form>
       </Containers>
