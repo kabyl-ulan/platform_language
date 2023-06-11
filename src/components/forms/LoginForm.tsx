@@ -13,7 +13,8 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { setLocalStorage } from "../../utils/helpers/localStorage";
 import { KEY_TOKEN } from "../../utils/constans/key";
 import { PUBLIC_API } from "../../api/api";
-import { Btn, Containers, EyeInput, Inputs } from "../ui";
+import { Btn, Containers, EyeInput, Inputs, LoginOrRegister } from "../ui";
+import GoogleAuth from "../google-auth/GoogleAuth";
 
 type InputsLogin = {
   email: string;
@@ -57,6 +58,9 @@ const LoginForm = () => {
               <Text textAlign="center" fontSize="30px">
                 Авторизация
               </Text>
+              <Box py="10px">
+                <GoogleAuth />
+              </Box>
               <FormLabel>
                 Электронная почта*
                 <Inputs
@@ -79,8 +83,13 @@ const LoginForm = () => {
                 </InputGroup>
               </FormLabel>
               <Box display="flex" justifyContent="center">
-                <Btn text="Войти" isLoading={loading} />
+                <Btn text="Войти" isLoading={loading} p="10px 20px" />
               </Box>
+              <LoginOrRegister
+                quation="У вас нет аккаунта?"
+                text="Зарегистрироваться"
+                navigate={"/register"}
+              />
             </Box>
           </Box>
         </form>

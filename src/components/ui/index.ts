@@ -16,3 +16,6 @@ export { default as InputsType } from "./InputsType";
 
 //Eye input
 export { default as EyeInput } from "./EyeInput";
+
+//login or register
+export { default as LoginOrRegister } from "./LoginOrRegister";

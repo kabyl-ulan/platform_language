@@ -6,11 +6,12 @@ type BtnComponent = {
   onClick?: () => void;
   rightIcon?: ReactElement;
   isLoading?: boolean;
+  p?: string | any;
 } & ButtonProps;
 
 class Btn extends Component<BtnComponent> {
   render(): ReactNode {
-    const { text, onClick, rightIcon, isLoading } = this.props;
+    const { text, onClick, rightIcon, isLoading, p } = this.props;
     return (
       <Button
         isLoading={isLoading}
@@ -19,6 +20,7 @@ class Btn extends Component<BtnComponent> {
         bg="#175cb6"
         onClick={onClick}
         rightIcon={rightIcon}
+        p={p}
       >
         {text}
       </Button>
