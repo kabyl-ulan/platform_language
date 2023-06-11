@@ -4,7 +4,7 @@ import { RouteProps } from "react-router-dom";
 import {
   AdminPage,
   AllCoursePage,
-  AllTeachersPage,
+  // AllTeachersPage,
   CoursesInByIdPage,
   DetailCoursePage,
   HomePage,
@@ -12,7 +12,7 @@ import {
   NotFound,
   RegisterPage,
   SearchPage,
-  TeachersDetailPage,
+  // TeachersDetailPage,
 } from "../pages";
 
 export const routes: RouteProps[] = [
@@ -44,14 +44,14 @@ export const routes: RouteProps[] = [
     path: "/courseDetail/:idCourse",
     element: <DetailCoursePage />,
   },
-  {
-    path: "/all-teachers",
-    element: <AllTeachersPage />,
-  },
-  {
-    path: "/teachers/:idTeacher",
-    element: <TeachersDetailPage />,
-  },
+  // {
+  //   path: "/all-teachers",
+  //   element: <AllTeachersPage />,
+  // },
+  // {
+  //   path: "/teachers/:idTeacher",
+  //   element: <TeachersDetailPage />,
+  // },
   {
     path: "/admin",
     element: <AdminPage />,

@@ -1,14 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { api } from "./api";
+import { useDispatch } from "react-redux";
 
-// Configure your store with the RTK Query middleware
+//local
+import { api } from "./api";
+import openBurger from "./burger-menu/reducer";
+
 export const store = configureStore({
   reducer: {
     [api.reducerPath]: api.reducer,
+    openBurger,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(api.middleware),
 });
 
-// Export the store type
 export type RootState = ReturnType<typeof store.getState>;
+export const useAppDispatch = () => useDispatch();

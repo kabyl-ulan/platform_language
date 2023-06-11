@@ -1,15 +1,25 @@
 import { Box } from "@chakra-ui/react";
-import { Dispatch, FC, SetStateAction } from "react";
+import { FC } from "react";
+
+//local
+import { openOrClose } from "../../redux/burger-menu/action";
+import { useAppDispatch } from "../../redux/store";
 
 type IBurgerBtn = {
   openBurger: boolean;
-  setOpenBurger: Dispatch<SetStateAction<boolean>>;
 };
 
-const BurgerBtn: FC<IBurgerBtn> = ({ openBurger, setOpenBurger }) => {
+const BurgerBtn: FC<IBurgerBtn> = ({ openBurger }) => {
+  const dispatch = useAppDispatch();
+  const openBurgerAction = openOrClose({ isOpen: !openBurger });
+
+  const handleClick = () => {
+    dispatch(openBurgerAction);
+  };
+
   return (
     <button
-      onClick={() => setOpenBurger(!openBurger)}
+      onClick={handleClick}
       className={`burger-btn ${openBurger ? "active-burger" : ""}`}
     >
       <Box

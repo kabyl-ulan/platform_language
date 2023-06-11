@@ -1,15 +1,16 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 
 //local
 import BurgerBtn from "./BurgerBtn";
 import Navigation from "./Navigation";
+import { useBurgerMenu } from "../../redux/burger-menu/hook";
 
 const MenuNav: FC = () => {
-  const [openBurger, setOpenBurger] = useState<boolean>(false);
+  const { isOpen } = useBurgerMenu();
   return (
     <>
-      <BurgerBtn openBurger={openBurger} setOpenBurger={setOpenBurger} />
-      <Navigation openBurger={openBurger} />
+      <BurgerBtn openBurger={isOpen} />
+      <Navigation openBurger={isOpen} />
     </>
   );
 };
