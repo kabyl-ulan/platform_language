@@ -11,12 +11,14 @@ import { FC } from "react";
 import { NavLink } from "react-router-dom";
 
 //local
-import category from "./Category.json";
+import { useGetCategoryListQuery } from "../../redux/api";
 
 const AccordionMenu: FC = () => {
+  const { data } = useGetCategoryListQuery();
+
   return (
     <Accordion>
-      {category.map((el) => (
+      {data?.map((el) => (
         <AccordionItem key={el.id}>
           <h2>
             <AccordionButton>
@@ -27,8 +29,8 @@ const AccordionMenu: FC = () => {
             </AccordionButton>
           </h2>
           <AccordionPanel pb={4}>
-            {!!el.categoryResponse.length &&
-              el.categoryResponse.map((item) => (
+            {!!el.subCategoryResponses.length &&
+              el.subCategoryResponses.map((item) => (
                 <Box ml={{ base: "0", xs: "15px", lg: "20px" }} key={item.id}>
                   <NavLink to={`/courses/${item.id}`}>
                     <Text cursor="pointer" position="relative" className="item">
