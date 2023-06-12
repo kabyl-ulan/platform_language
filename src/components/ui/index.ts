@@ -19,3 +19,6 @@ export { default as EyeInput } from "./EyeInput";
 
 //login or register
 export { default as LoginOrRegister } from "./LoginOrRegister";
+
+//textError
+export { default as TextError } from "./TextError";

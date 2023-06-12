@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import {
   Box,
   FormLabel,
@@ -12,35 +12,45 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { setLocalStorage } from "../../utils/helpers/localStorage";
 import { KEY_TOKEN } from "../../utils/constans/key";
 import { PUBLIC_API } from "../../api/api";
-import { Btn, Containers, EyeInput, Inputs, LoginOrRegister } from "../ui";
+import {
+  Btn,
+  Containers,
+  EyeInput,
+  Inputs,
+  LoginOrRegister,
+  TextError,
+} from "../ui";
+import { emailPattern, phonePattern } from "../../utils/constans/pattern";
+import { InputsRegister } from "../../utils/helpers/interfaces";
+import { useNavigate } from "react-router-dom";
 
-type InputsRegister = {
-  name: string;
-  surname: string;
-  email: string;
-  phoneNumber: string;
-  password1: string;
-  password2: string;
-  patronymic: string;
-};
-
-const RegisterForm = () => {
+const RegisterForm: FC = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm<InputsRegister>();
+
+  const navigate = useNavigate();
 
   const [eye, setEye] = useState<boolean>(false);
   const [eyeConfirm, setEyeConfirm] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+  const [errorPassword2, setErrorPassword2] = useState<boolean>(true);
 
   const onSubmit: SubmitHandler<InputsRegister> = async (user) => {
     try {
       setLoading(true);
-      const { data } = await PUBLIC_API.post("user/register", { ...user });
-      console.log(data);
-      data?.token && setLocalStorage(KEY_TOKEN, data?.token);
+      if (watch().password1 === watch().password2) {
+        setErrorPassword2(false);
+        const { data } = await PUBLIC_API.post("user/register", { ...user });
+        console.log(data);
+        data?.token && setLocalStorage(KEY_TOKEN, data?.token);
+        data?.role === "USER" && navigate("/");
+      } else {
+        setErrorPassword2(true);
+      }
       setLoading(false);
     } catch (e: any) {
       console.log(e);
@@ -53,17 +63,34 @@ const RegisterForm = () => {
     fieldName: keyof InputsRegister,
     type: string,
     placeholder: string,
-    required = true
+    required = true,
+    pattern?: {
+      value: any;
+      message: string;
+    }
   ) => (
     <FormLabel>
       {name}
       <Inputs
-        register={register(fieldName, { required })}
+        register={register(fieldName, {
+          required: required && "Это обязательное поле",
+          pattern,
+        })}
         type={type}
         placeholder={placeholder}
       />
+      {errors[fieldName] && <TextError message={errors[fieldName]?.message} />}
     </FormLabel>
   );
+
+  useEffect(() => {
+    if (watch().password1 === watch().password2) {
+      setErrorPassword2(false);
+    } else {
+      setErrorPassword2(true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [watch().password1, watch().password2, watch]);
 
   return (
     <section>
@@ -76,19 +103,35 @@ const RegisterForm = () => {
             {renderInputField("Имя*", "name", "text", "name")}
             {renderInputField("Фамилия*", "surname", "text", "surname")}
             {renderInputField(
-              "Отчество",
-              "patronymic",
-              "text",
-              "patronymic",
-              false
+              "Электронная почта*",
+              "email",
+              "email",
+              "xxx@gmail.com",
+              true,
+              { value: emailPattern, message: "Введите правильный адрес" }
             )}
-            {renderInputField("Электронная почта*", "email", "email", "email")}
-            {renderInputField("Телефон", "phoneNumber", "text", "phone", false)}
+            {renderInputField(
+              "Телефон*",
+              "phoneNumber",
+              "text",
+              "+996xxxxxxxxx",
+              true,
+              {
+                value: phonePattern,
+                message: "Введите в формате +996xxxxxxxxx",
+              }
+            )}
             <FormLabel>
               Пароль*
               <InputGroup>
                 <Inputs
-                  register={register("password1", { required: true })}
+                  register={register("password1", {
+                    required: "Это обязательное поле",
+                    minLength: {
+                      value: 6,
+                      message: "Введите не более 6 символов",
+                    },
+                  })}
                   type={eye ? "text" : "password"}
                   placeholder="password"
                 />
@@ -96,12 +139,17 @@ const RegisterForm = () => {
                   <EyeInput eyeIsShow={eye} setEyeIsShow={setEye} />
                 </InputRightElement>
               </InputGroup>
+              {errors.password1 && (
+                <TextError message={errors.password1?.message} />
+              )}
             </FormLabel>
             <FormLabel>
               Подтвердить пароль*
               <InputGroup>
                 <Inputs
-                  register={register("password2", { required: true })}
+                  register={register("password2", {
+                    required: "Введите пароль повторно",
+                  })}
                   type={eyeConfirm ? "text" : "password"}
                   placeholder="confirm password"
                 />
@@ -112,6 +160,15 @@ const RegisterForm = () => {
                   />
                 </InputRightElement>
               </InputGroup>
+              <TextError
+                message={
+                  errors.password2
+                    ? errors.password2.message
+                    : errorPassword2
+                    ? "Пароли не совпадают"
+                    : ""
+                }
+              />
             </FormLabel>
             <Box display="flex" justifyContent="center">
               <Btn text="Регистрация" isLoading={loading} />

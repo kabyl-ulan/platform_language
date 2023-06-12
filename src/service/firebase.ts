@@ -23,15 +23,17 @@ export const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: "select_account" });
 
-export const getIdToken = async () => {
+export const getIdToken = async (navigate: any) => {
   try {
     const userCredential = await auth.signInWithPopup(provider);
     const idToken = await userCredential.user?.getIdToken();
     const { data } = await PUBLIC_API.post(
       `user/authenticate/google?tokenId=${idToken}`
     );
-    alert(JSON.stringify(data, null, 2));
     data?.token && setLocalStorage(KEY_TOKEN, data?.token);
+    data?.role === "USER"
+      ? navigate("/")
+      : data?.role === "SUPER_ADMIN" && navigate("/admin");
   } catch (error: any) {
     if (error.code === "auth/popup-closed-by-user") {
       console.log("Popup closed by the user");

@@ -1,25 +1,17 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import { FcGoogle } from "react-icons/fc";
+import { useNavigate } from "react-router-dom";
 
 //local
 import { getIdToken } from "../../service/firebase";
-import firebase from "../../service/firebase";
 
 const GoogleAuth: FC = () => {
-  const [user, setUser] = useState<any>(null);
-
-  console.log(user);
-
-  useEffect(() => {
-    firebase.auth().onAuthStateChanged((user) => {
-      setUser(user);
-    });
-  }, []);
+  const navigate = useNavigate();
 
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
       <button
-        onClick={() => getIdToken()}
+        onClick={() => getIdToken(navigate)}
         style={{
           display: "flex",
           alignItems: "center",
