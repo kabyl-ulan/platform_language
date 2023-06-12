@@ -7,7 +7,6 @@ import "./youtube_video.scss";
 import CourseImage from "../../assets/img/javaScript.png";
 import { Btn, Containers, Images } from "../ui";
 import { MdLanguage, MdOutlineCategory } from "react-icons/md";
-import { GoClock } from "react-icons/go";
 import { AiOutlinePlayCircle } from "react-icons/ai";
 import { CiCalendarDate } from "react-icons/ci";
 import { FaChalkboardTeacher } from "react-icons/fa";
@@ -41,13 +40,6 @@ const DetailCourse: FC = () => {
               justifyContent={{ base: "space-around", lg: "space-between" }}
               flexWrap="wrap"
             >
-              <Box display="flex" alignItems="center">
-                <GoClock style={{ fontSize: "28px" }} />
-                <Box ml="5px">
-                  <Text>Продолжительность</Text>
-                  <Text>05:39:50</Text>
-                </Box>
-              </Box>
               <Box display="flex" alignItems="center">
                 <MdOutlineCategory style={{ fontSize: "28px" }} />
                 <Box ml="5px">

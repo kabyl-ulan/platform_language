@@ -1,6 +1,5 @@
 import { Box, Text } from "@chakra-ui/react";
 import { FC } from "react";
-import { GoClock } from "react-icons/go";
 import { MdLanguage } from "react-icons/md";
 
 //local
@@ -8,7 +7,13 @@ import CourseImage from "../../assets/img/javaScript.png";
 import { Btn, Images } from "../ui";
 import { useNavigate } from "react-router-dom";
 
-const CourseCard: FC = () => {
+interface ICourseCard {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const CourseCard: FC<ICourseCard> = ({ title, description, image }) => {
   const navigate = useNavigate();
 
   const onClick = () => {
@@ -21,11 +26,10 @@ const CourseCard: FC = () => {
       mb="15px"
       display="flex"
       flexDir={{ base: "column", xs: "row" }}
-      onClick={onClick}
     >
       <Box overflow="hidden" w={{ base: "100%", xs: "350px" }}>
         <Images
-          source={CourseImage}
+          source={image ? image : CourseImage}
           alt="course_image"
           maxWidth="100%"
           _hover={{ transform: "scale(1.1)" }}
@@ -38,11 +42,12 @@ const CourseCard: FC = () => {
           fontWeight="800"
           lineHeight="120%"
         >
-          Полный курс по JavaScript
+          {title ? title : "Полный курс по JavaScript"}
         </Text>
         <Text mt="10px" textAlign="justify">
-          Полныи курс по JavaScript С нуля до результата Это ранняя версия
-          курса. Курс готов на 70% и охватывает все основные темы JS.
+          {description
+            ? description
+            : "Полныи курс по JavaScript С нуля до результата Это ранняя версия курса. Курс готов на 70% и охватывает все основные темы JS."}
         </Text>
         <Box
           display="flex"
@@ -54,10 +59,7 @@ const CourseCard: FC = () => {
             <MdLanguage />
             <Text ml="5px">Русский</Text>
           </Box>
-          <Box display="flex" alignItems="center" mx="10px">
-            <GoClock />
-            <Text ml="5px">05:39:50</Text>
-          </Box>
+          <Text ml="5px">100 сом</Text>
           <Btn text="Посмотреть" onClick={onClick} />
         </Box>
       </Box>
