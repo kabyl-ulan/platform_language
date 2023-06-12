@@ -11,7 +11,7 @@ import { FC } from "react";
 import { NavLink } from "react-router-dom";
 
 //local
-import { useGetCategoryListQuery } from "../../redux/api";
+import { useGetCategoryListQuery } from "../../redux/getAllCategoriesApi";
 
 const AccordionMenu: FC = () => {
   const { data } = useGetCategoryListQuery();

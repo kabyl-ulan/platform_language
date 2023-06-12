@@ -8,8 +8,8 @@ export interface ICategory {
 }
 
 // Create an instance of the API
-export const api = createApi({
-  reducerPath: "api",
+export const getAllCategoriesApi = createApi({
+  reducerPath: "getAllCategoriesApi",
   baseQuery: fetchBaseQuery({ baseUrl: API_ADDRESS }),
   endpoints: (builder) => ({
     // Define your category endpoint
@@ -20,4 +20,4 @@ export const api = createApi({
 });
 
 // Export hooks for using the API
-export const { useGetCategoryListQuery } = api;
+export const { useGetCategoryListQuery } = getAllCategoriesApi;

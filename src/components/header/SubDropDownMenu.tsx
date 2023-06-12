@@ -4,7 +4,7 @@ import { Box } from "@chakra-ui/react";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 
 import DropDownMenu from "./DropDownMenu";
-import { ICategory } from "../../redux/api";
+import { ICategory } from "../../redux/getAllCategoriesApi";
 
 const SubDropDown = ({ elem }: { elem: ICategory }) => {
   const [isShown, setIsShown] = useState(false);

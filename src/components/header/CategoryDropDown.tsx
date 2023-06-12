@@ -3,7 +3,7 @@ import React, { FC, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
 //local
-import { useGetCategoryListQuery } from "../../redux/api";
+import { useGetCategoryListQuery } from "../../redux/getAllCategoriesApi";
 import DropDownMenu from "./DropDownMenu";
 
 const CategoryDropDown: FC = () => {
