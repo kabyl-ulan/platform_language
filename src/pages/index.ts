@@ -9,3 +9,4 @@ export { default as DetailCoursePage } from "./DetailCoursePage";
 export { default as TeachersDetailPage } from "./TeachersDetailPage";
 export { default as NotFound } from "./NotFound";
 export { default as AdminPage } from "./AdminPage";
+export { default as AdminCategoriesPage } from "./AdminCategoriesPage";

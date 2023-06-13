@@ -1,81 +1,92 @@
-import React, { Component, ReactElement } from "react";
+import React, { FC, ReactElement } from "react";
 import { Box, Text } from "@chakra-ui/react";
 import { BsTelephoneFill } from "react-icons/bs";
 import { MdMail } from "react-icons/md";
+import { useLocation } from "react-router-dom";
 
 //local
+import { windowLocation } from "../../utils/helpers/navFunction";
 import { Containers } from "../ui";
 import LogoHome from "../header/LogoHome";
-import { windowLocation } from "../../utils/helpers/navFunction";
 
-class Footer extends Component {
-  render(): React.ReactNode {
-    const currentDate = new Date();
-    const current = currentDate.toLocaleDateString("en-US", {
-      year: "numeric",
-    });
+const Footer: FC = () => {
+  const year = 2023;
 
-    const Contacts = ({
-      icon,
-      text,
-      link,
-    }: {
-      icon: ReactElement;
-      text: string;
-      link: string;
-    }) => {
-      return (
-        <Box
-          display="flex"
-          alignItems="center"
-          ml="30px"
-          p="2px"
-          cursor="pointer"
-          onClick={() => windowLocation(link)}
-        >
-          {icon}
-          <Text ml="10px">{text}</Text>
-        </Box>
-      );
-    };
+  const location = useLocation();
 
+  const currentDate = new Date();
+  const current = currentDate.toLocaleDateString("en-US", {
+    year: "numeric",
+  });
+
+  const Contacts = ({
+    icon,
+    text,
+    link,
+  }: {
+    icon: ReactElement;
+    text: string;
+    link: string;
+  }) => {
     return (
-      <footer>
-        <Containers>
-          <Box borderTop="1px" py="12px">
+      <Box
+        display="flex"
+        alignItems="center"
+        ml="30px"
+        p="2px"
+        cursor="pointer"
+        onClick={() => windowLocation(link)}
+      >
+        {icon}
+        <Text ml="10px">{text}</Text>
+      </Box>
+    );
+  };
+
+  if (location.pathname.includes("admin")) {
+    return null;
+  }
+
+  return (
+    <footer>
+      <Containers>
+        <Box borderTop="1px" py="12px">
+          <Box
+            display="flex"
+            justifyContent={{ base: "center", xs: "space-between" }}
+            flexDirection={{ base: "column", xs: "row" }}
+            alignItems="center"
+          >
+            <LogoHome />
             <Box
               display="flex"
-              justifyContent={{ base: "center", xs: "space-between" }}
-              flexDirection={{ base: "column", xs: "row" }}
               alignItems="center"
+              flexWrap="wrap"
+              fontSize="16px"
             >
-              <LogoHome />
-              <Box
-                display="flex"
-                alignItems="center"
-                flexWrap="wrap"
-                fontSize="16px"
-              >
-                <Contacts
-                  icon={<BsTelephoneFill />}
-                  text="+996500032640"
-                  link="tel:+996500032640"
-                />
-                <Contacts
-                  icon={<MdMail />}
-                  text="course@gmail.com"
-                  link="mailto:course@gmail.com"
-                />
-              </Box>
+              <Contacts
+                icon={<BsTelephoneFill />}
+                text="+996500032640"
+                link="tel:+996500032640"
+              />
+              <Contacts
+                icon={<MdMail />}
+                text="coursekg@gmail.com"
+                link="mailto:course@gmail.com"
+              />
             </Box>
-            <Text fontSize="12px" textAlign="center">
-              © {current} Абдыкалык уулу Кабыл-Улан
-            </Text>
           </Box>
-        </Containers>
-      </footer>
-    );
-  }
-}
+          <Text fontSize="12px" textAlign="center">
+            ©{" "}
+            {Number(year) === Number(current)
+              ? year
+              : `${year + " - " + current}`}{" "}
+            Абдыкалык уулу К.
+          </Text>
+        </Box>
+      </Containers>
+    </footer>
+  );
+};
 
 export default Footer;
