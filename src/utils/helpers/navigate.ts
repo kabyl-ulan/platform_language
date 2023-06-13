@@ -14,8 +14,8 @@ export const allNav = [
     link: "/all-course",
     text: "Все курсы",
   },
-  {
-    link: "/all-teachers",
-    text: "Преподаватели",
-  },
+  // {
+  //   link: "/all-teachers",
+  //   text: "Преподаватели",
+  // },
 ];
