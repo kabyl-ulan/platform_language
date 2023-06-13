@@ -23,8 +23,8 @@ const WhatsappIcon: FC = () => {
       w={{ base: "45px", sm: "55px" }}
       h={{ base: "45px", sm: "55px" }}
       position="fixed"
-      bottom={{ base: "100px", md: "3rem" }}
-      right={{ base: "2rem", lg: "3rem" }}
+      bottom={{ base: "2rem ", md: "5rem" }}
+      right={{ base: "2rem", lg: "4rem" }}
       zIndex="25"
     >
       <Box
