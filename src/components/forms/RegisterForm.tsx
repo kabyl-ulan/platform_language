@@ -22,7 +22,7 @@ import {
 } from "../ui";
 import { emailPattern, phonePattern } from "../../utils/constans/pattern";
 import { InputsRegister } from "../../utils/helpers/interfaces";
-import { useNavigate } from "react-router-dom";
+import { windowLocation } from "../../utils/helpers/navFunction";
 
 const RegisterForm: FC = () => {
   const {
@@ -31,8 +31,6 @@ const RegisterForm: FC = () => {
     formState: { errors },
     watch,
   } = useForm<InputsRegister>();
-
-  const navigate = useNavigate();
 
   const [eye, setEye] = useState<boolean>(false);
   const [eyeConfirm, setEyeConfirm] = useState<boolean>(false);
@@ -47,7 +45,11 @@ const RegisterForm: FC = () => {
         const { data } = await PUBLIC_API.post("user/register", { ...user });
         console.log(data);
         data?.token && setLocalStorage(KEY_TOKEN, data?.token);
-        data?.role === "USER" && navigate("/");
+        data?.role === "USER" && setLocalStorage("user", data.role);
+        data?.role === "USER" && setLocalStorage("gmail", data?.nickname);
+        data?.role === "USER"
+          ? windowLocation("/")
+          : data?.role === "SUPER_ADMIN" && windowLocation("/admin/order");
       } else {
         setErrorPassword2(true);
       }

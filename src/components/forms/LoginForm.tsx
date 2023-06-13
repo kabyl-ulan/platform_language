@@ -8,7 +8,6 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 
 //local
 import { setLocalStorage } from "../../utils/helpers/localStorage";
@@ -25,6 +24,7 @@ import {
 import GoogleAuth from "../google-auth/GoogleAuth";
 import { emailPattern } from "../../utils/constans/pattern";
 import { InputsLogin } from "../../utils/helpers/interfaces";
+import { windowLocation } from "../../utils/helpers/navFunction";
 
 const LoginForm = () => {
   const {
@@ -32,8 +32,6 @@ const LoginForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<InputsLogin>();
-
-  const navigate = useNavigate();
 
   const [eye, setEye] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
@@ -43,9 +41,13 @@ const LoginForm = () => {
       setLoading(true);
       const { data } = await PUBLIC_API.post("user/login", { ...user });
       data?.token && setLocalStorage(KEY_TOKEN, data?.token);
+      data?.role === "SUPER_ADMIN"
+        ? setLocalStorage("admin", data.role)
+        : data?.role === "USER" && setLocalStorage("user", data.role);
+      data?.role === "USER" && setLocalStorage("gmail", data?.nickname);
       data?.role === "USER"
-        ? navigate("/")
-        : data?.role === "SUPER_ADMIN" && navigate("/admin");
+        ? windowLocation("/")
+        : data?.role === "SUPER_ADMIN" && windowLocation("/admin/order");
       setLoading(false);
     } catch (e: any) {
       setLoading(false);

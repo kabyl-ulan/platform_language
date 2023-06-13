@@ -5,6 +5,7 @@ import "firebase/compat/auth";
 import { PUBLIC_API } from "../api/api";
 import { setLocalStorage } from "../utils/helpers/localStorage";
 import { KEY_TOKEN } from "../utils/constans/key";
+import { windowLocation } from "../utils/helpers/navFunction";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -31,9 +32,13 @@ export const getIdToken = async (navigate: any) => {
       `user/authenticate/google?tokenId=${idToken}`
     );
     data?.token && setLocalStorage(KEY_TOKEN, data?.token);
+    data?.role === "USER" && setLocalStorage("gmail", data?.nickname);
+    data?.role === "SUPER_ADMIN"
+      ? setLocalStorage("admin", data.role)
+      : data?.role === "USER" && setLocalStorage("user", data.role);
     data?.role === "USER"
-      ? navigate("/")
-      : data?.role === "SUPER_ADMIN" && navigate("/admin");
+      ? windowLocation("/")
+      : data?.role === "SUPER_ADMIN" && windowLocation("/admin/order");
   } catch (error: any) {
     if (error.code === "auth/popup-closed-by-user") {
       console.log("Popup closed by the user");

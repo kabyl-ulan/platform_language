@@ -4,7 +4,6 @@ import { RouteProps } from "react-router-dom";
 import {
   AdminPage,
   AllCoursePage,
-  // AllTeachersPage,
   CoursesInByIdPage,
   DetailCoursePage,
   HomePage,
@@ -12,8 +11,12 @@ import {
   NotFound,
   RegisterPage,
   SearchPage,
-  // TeachersDetailPage,
+  AdminCategoriesPage,
 } from "../pages";
+import AdminCoursePage from "../pages/AdminCoursePage";
+import AdminUsersPage from "../pages/AdminUsersPage";
+import MyAccountPage from "../pages/MyAccountPage";
+import MyCoursesPage from "../pages/MyCoursesPage";
 
 export const routes: RouteProps[] = [
   {
@@ -33,6 +36,10 @@ export const routes: RouteProps[] = [
     element: <SearchPage />,
   },
   {
+    path: "/admin/users",
+    element: <AdminUsersPage />,
+  },
+  {
     path: "/all-course",
     element: <AllCoursePage />,
   },
@@ -44,17 +51,25 @@ export const routes: RouteProps[] = [
     path: "/courseDetail/:idCourse",
     element: <DetailCoursePage />,
   },
-  // {
-  //   path: "/all-teachers",
-  //   element: <AllTeachersPage />,
-  // },
-  // {
-  //   path: "/teachers/:idTeacher",
-  //   element: <TeachersDetailPage />,
-  // },
   {
-    path: "/admin",
+    path: "/admin/categories",
+    element: <AdminCategoriesPage />,
+  },
+  {
+    path: "/admin/courses",
+    element: <AdminCoursePage />,
+  },
+  {
+    path: "/admin/order",
     element: <AdminPage />,
+  },
+  {
+    path: "/my-account",
+    element: <MyAccountPage />,
+  },
+  {
+    path: "/my-courses",
+    element: <MyCoursesPage />,
   },
   {
     path: "*",

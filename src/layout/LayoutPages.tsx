@@ -1,7 +1,7 @@
 import React from "react";
 
 //local
-import { Footer, Header } from "../components";
+import { Footer, Header, WhatsappIcon } from "../components";
 
 type ComponentProps = {
   children: React.ReactNode;
@@ -14,6 +14,7 @@ class LayoutPages extends React.Component<ComponentProps> {
       <>
         <Header />
         <main className="main">{children}</main>
+        <WhatsappIcon />
         <Footer />
       </>
     );

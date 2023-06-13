@@ -22,5 +22,8 @@ export { default as AllTeachersHero } from "./components-all-teachers/AllTeacher
 //components DetailTecherPage
 export { default as DetailTeacher } from "./detailTeacher/DetailTeacher";
 
+//components Whatsapp Icon
+export { default as WhatsappIcon } from "./whatsappIcon/WhatsappIcon";
+
 //components Admin Page
-export { default as AdminMenu } from "./admin/AdminMenu";
+export { default as AdminComponent } from "./admin/AdminComponent";

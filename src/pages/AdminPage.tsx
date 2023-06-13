@@ -1,11 +1,11 @@
 import React, { FC } from "react";
 
-import { AdminMenu } from "../components";
+import { AdminComponent } from "../components";
 
 const AdminPage: FC = () => {
   return (
     <>
-      <AdminMenu />
+      <AdminComponent children="order" />
     </>
   );
 };
