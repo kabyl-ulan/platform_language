@@ -18,6 +18,7 @@ const Account: FC = () => {
           {accountNav.map((nav, idx) => (
             <Box
               ml={{ base: "0", xs: "15px", lg: "20px" }}
+              mb={{ base: "2px" }}
               key={idx}
               bg={{ xs: "blue.800" }}
               rounded="lg"
