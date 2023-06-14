@@ -46,11 +46,11 @@ const SubDropDown = ({ elem }: { elem: ICategory }) => {
           style={{
             position: "absolute",
             top: "0",
-            right: "-150px",
+            right: "-200px",
             zIndex: "45",
             background: "white",
             color: "black",
-            width: "150px",
+            width: "200px",
           }}
         >
           {elem.subCategoryResponses.length > 0 && (

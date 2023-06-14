@@ -8,6 +8,7 @@ import { useLocation } from "react-router-dom";
 import { windowLocation } from "../../utils/helpers/navFunction";
 import { Containers } from "../ui";
 import LogoHome from "../header/LogoHome";
+import { gmail, phoneNumber } from "../../utils/constans/messengers";
 
 const Footer: FC = () => {
   const year = 2023;
@@ -66,13 +67,13 @@ const Footer: FC = () => {
             >
               <Contacts
                 icon={<BsTelephoneFill />}
-                text="+996500032640"
-                link="tel:+996500032640"
+                text={phoneNumber}
+                link={`tel:${phoneNumber}`}
               />
               <Contacts
                 icon={<MdMail />}
-                text="coursekg@gmail.com"
-                link="mailto:course@gmail.com"
+                text={gmail}
+                link={`mailto:${gmail}`}
               />
             </Box>
           </Box>

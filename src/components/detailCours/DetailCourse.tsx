@@ -1,15 +1,19 @@
 import { FC, useEffect } from "react";
 import { Box, Text, Textarea } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
-
-//local
-import "./youtube_video.scss";
-import CourseImage from "../../assets/img/javaScript.png";
-import { Btn, Containers, Images } from "../ui";
 import { MdLanguage, MdOutlineCategory } from "react-icons/md";
 import { AiOutlinePlayCircle } from "react-icons/ai";
 import { CiCalendarDate } from "react-icons/ci";
 import { FaChalkboardTeacher } from "react-icons/fa";
+
+//local
+import "./youtube_video.scss";
+import { Btn, Containers, Images } from "../ui";
+import { windowOpen } from "../../utils/helpers/navFunction";
+import {
+  whatsappMessage,
+  whatsappNumber,
+} from "../../utils/constans/messengers";
 
 const DetailCourse: FC = () => {
   const { idCourse } = useParams();
@@ -20,13 +24,11 @@ const DetailCourse: FC = () => {
   return (
     <section>
       <Containers>
-        <Text fontSize="28px">
-          Название курса: Интенсив JavaScript для всех!
-        </Text>
+        <Text fontSize="28px">Название курса: English Language for IT</Text>
         <Box display="flex" flexDir={{ base: "column", xs: "row" }} my="10px">
           <Box overflow="hidden" w={{ base: "100%", xs: "350px" }}>
             <Images
-              source={CourseImage}
+              source="https://www.vec.ca/wp-content/uploads/2019/03/English-Language-Level-System-704x350.jpg"
               alt="course_image"
               width="100%"
               _hover={{ transform: "scale(1.1)" }}
@@ -44,14 +46,14 @@ const DetailCourse: FC = () => {
                 <MdOutlineCategory style={{ fontSize: "28px" }} />
                 <Box ml="5px">
                   <Text>Категория</Text>
-                  <Text>JavaScript</Text>
+                  <Text>Для IT-специалистов</Text>
                 </Box>
               </Box>
               <Box display="flex" alignItems="center">
                 <FaChalkboardTeacher style={{ fontSize: "28px" }} />
                 <Box ml="5px">
                   <Text>Преподаватель</Text>
-                  <Text>Каримбаев Т.Т.</Text>
+                  <Text>Болотов Т.Т.</Text>
                 </Box>
               </Box>
               <Box display="flex" alignItems="center">
@@ -77,24 +79,40 @@ const DetailCourse: FC = () => {
               </Box>
             </Box>
             <Text mt="10px">
-              По прохождению интенсива JavaScript для всех!, ты сможешь начать
-              создавать свои первые проекты с использованием изученных знаний.
-              Ты полностью освоишь процесс разработки и получишь первую работу в
-              своё портфолио. По окончанию обучения ты получишь сертификат,
-              который пригодится при поступлении на работу или просто в
-              портфолио.
+              Курсы английского языка тщательно планируются и проводятся, чтобы
+              исключить ненужное повторение. Обычно у них от 45 до 50 классов,
+              разделенных на 15 уровней. Когда вы начнете учиться в школе
+              английского языка, вам будет предложен устный и письменный
+              экзамен.
             </Text>
           </Box>
         </Box>
+        <Box>
+          <Text textAlign="center">100 сом</Text>
+        </Box>
         <Box my="10px" display="flex" flexDir={{ base: "column", xs: "row" }}>
           <Box>
-            <iframe
-              src="https://www.youtube.com/embed/bMRosz1JZOA"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
+            <Box
               className="youtube_video"
-            ></iframe>
+              bg="black"
+              borderRadius="10px"
+              position="relative"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Box display="flex" flexDir="column" alignItems="center">
+                <Text mb="10px">Этот курс будет доступен после оплаты!</Text>
+                <Btn
+                  text="Оформить подписку"
+                  onClick={() => {
+                    windowOpen(
+                      `https://wa.me/${whatsappNumber}?text=${"Здравствуйте! Название курса: English Language for IT."}`
+                    );
+                  }}
+                />
+              </Box>
+            </Box>
           </Box>
           <Box w={{ xs: "450px" }} h="415px" px="10px" overflowY="auto">
             <Box borderBottom="1px" mb="10px">
@@ -102,56 +120,58 @@ const DetailCourse: FC = () => {
                 <Text>Урок 1</Text>
                 <Text>00:09:10</Text>
               </Box>
-              <Text>Что такое JavaScript?</Text>
+              <Text>Welcome on Board</Text>
             </Box>
             <Box borderBottom="1px" mb="10px">
               <Box display="flex" justifyContent="space-between">
                 <Text>Урок 2</Text>
                 <Text>00:09:10</Text>
               </Box>
-              <Text>Что такое JavaScript?</Text>
+              <Text>Блок о мышлении</Text>
             </Box>
             <Box borderBottom="1px" mb="10px">
               <Box display="flex" justifyContent="space-between">
                 <Text>Урок 3</Text>
                 <Text>00:09:10</Text>
               </Box>
-              <Text>Что такое JavaScript?</Text>
+              <Text>Блок о мышлении</Text>
             </Box>
             <Box borderBottom="1px" mb="10px">
               <Box display="flex" justifyContent="space-between">
                 <Text>Урок 4</Text>
                 <Text>00:09:10</Text>
               </Box>
-              <Text>Что такое JavaScript?</Text>
+              <Text>1.2 Pronunciation Technologies</Text>
             </Box>
             <Box borderBottom="1px" mb="10px">
               <Box display="flex" justifyContent="space-between">
                 <Text>Урок 5</Text>
                 <Text>00:09:10</Text>
               </Box>
-              <Text>Что такое JavaScript?</Text>
+              <Text>1.3 Grammar Gerunds vs. Infinitives</Text>
             </Box>
             <Box borderBottom="1px" mb="10px">
               <Box display="flex" justifyContent="space-between">
                 <Text>Урок 6</Text>
                 <Text>00:09:10</Text>
               </Box>
-              <Text>Что такое JavaScript?</Text>
+              <Text>
+                1.5 Speaking & Writing Explaining Your Choice of a Tech Stac
+              </Text>
             </Box>
             <Box borderBottom="1px" mb="10px">
               <Box display="flex" justifyContent="space-between">
                 <Text>Урок 7</Text>
                 <Text>00:09:10</Text>
               </Box>
-              <Text>Что такое JavaScript?</Text>
+              <Text>2.2 Pronunciation Nouns vs. Verbs</Text>
             </Box>
             <Box borderBottom="1px" mb="10px">
               <Box display="flex" justifyContent="space-between">
                 <Text>Урок 8</Text>
                 <Text>00:09:10</Text>
               </Box>
-              <Text>Что такое JavaScript?</Text>
+              <Text>11.2 Grammar Storytelling</Text>
             </Box>
             <Box borderBottom="1px" mb="10px">
               <Box display="flex" justifyContent="space-between">
@@ -173,35 +193,37 @@ const DetailCourse: FC = () => {
           <Text textAlign="center" fontSize="30px">
             Комментарии
           </Text>
-          <Box my="10px" borderBottom="1px" pb="5px">
+          {/* <Box my="10px" borderBottom="1px" pb="5px">
             <Textarea placeholder="Комментарии" mb="10px" />
             <Box display="flex" justifyContent="center">
               <Btn text="Отправить" />
             </Box>
-          </Box>
+          </Box> */}
           <Box mb="20px">
             <Box display="flex" justifyContent="space-between">
-              <Text>Kabyl-Ulan Abdykalyk uulu</Text>
+              <Text>Канат Асанбеков</Text>
               <Text>26.05.2023</Text>
             </Box>
             <Box border="1px" p="5px 10px">
               <Text>
-                Ролики перестали тормозить и появилась возможность оценить курс.
-                Очень слабый. Классическая мешанина. Курс, который называется
-                "интенсив по JS" всего 9 уроков рассказывает про сам JS. При
-                этом это происходит максимально поверхностно.
+                Курс поможет наработать теоретическую базу для дальнейшего
+                изучения английского языка, и раз и навсегда побороть страх
+                общения с иностранцами.
               </Text>
             </Box>
           </Box>
           <Box mb="20px">
             <Box display="flex" justifyContent="space-between">
-              <Text>Kabyl-Ulan Abdykalyk uulu</Text>
+              <Text>Айпери Джаныбекова</Text>
               <Text>27.05.2023</Text>
             </Box>
             <Box border="1px" p="5px 10px">
               <Text>
-                Таргетный зритель данного курса не выявлен. Смотреть можно
-                только ради того, чтобы словить пару лулзов и фейспалмов.
+                Занятия для изучения английского языка на уровне Beginner. Здесь
+                вы пополните свой словарный запас, изучите грамматические
+                правила и научитесь воспринимать речь на слух. Ученики, которые
+                прошли курс, уверенно общаются на бытовые темы и умеют писать и
+                читать на английском языке.
               </Text>
             </Box>
           </Box>
