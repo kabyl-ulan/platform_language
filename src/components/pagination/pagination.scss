@@ -1,6 +1,10 @@
 .pagination-container {
   display: flex;
   list-style-type: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 
   .pagination-item {
     display: flex;
