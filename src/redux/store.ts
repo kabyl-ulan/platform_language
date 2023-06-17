@@ -6,12 +6,14 @@ import { getAllCategoriesApi } from "./getAllCategoriesApi";
 import openBurger from "./burger-menu/reducer";
 import categories from "./categories/reducer";
 import subCategories from "./subCategories/reducer";
+import users from "./users/reducer";
 
 const rootReducer = combineReducers({
   [getAllCategoriesApi.reducerPath]: getAllCategoriesApi.reducer,
   openBurger,
   categories,
   subCategories,
+  users,
 });
 
 export const store = () => {

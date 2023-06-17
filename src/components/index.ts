@@ -29,3 +29,4 @@ export { default as WhatsappIcon } from "./whatsappIcon/WhatsappIcon";
 export { default as AdminComponent } from "./admin/AdminComponent";
 export { default as AllCategories } from "./admin/AllCategories";
 export { default as AllSubCategories } from "./admin/AllSubCategories";
+export { default as AllUsers } from "./admin/AllUsers";
