@@ -1,10 +1,10 @@
 import React from "react";
-import { AdminComponent } from "../components";
+import { AdminComponent, AllUsers } from "../components";
 
 const AdminUsersPage = () => {
   return (
     <>
-      <AdminComponent children="users" />
+      <AdminComponent children={<AllUsers />} />
     </>
   );
 };
