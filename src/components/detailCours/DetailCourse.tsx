@@ -10,10 +10,7 @@ import { FaChalkboardTeacher } from "react-icons/fa";
 import "./youtube_video.scss";
 import { Btn, Containers, Images } from "../ui";
 import { windowOpen } from "../../utils/helpers/navFunction";
-import {
-  whatsappMessage,
-  whatsappNumber,
-} from "../../utils/constans/messengers";
+import { whatsappNumber } from "../../utils/constans/messengers";
 
 const DetailCourse: FC = () => {
   const { idCourse } = useParams();
@@ -193,12 +190,12 @@ const DetailCourse: FC = () => {
           <Text textAlign="center" fontSize="30px">
             Комментарии
           </Text>
-          {/* <Box my="10px" borderBottom="1px" pb="5px">
+          <Box my="10px" borderBottom="1px" pb="5px">
             <Textarea placeholder="Комментарии" mb="10px" />
             <Box display="flex" justifyContent="center">
               <Btn text="Отправить" />
             </Box>
-          </Box> */}
+          </Box>
           <Box mb="20px">
             <Box display="flex" justifyContent="space-between">
               <Text>Канат Асанбеков</Text>

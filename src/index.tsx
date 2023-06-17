@@ -19,7 +19,7 @@ root.render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
       <Router>
-        <Provider store={store}>
+        <Provider store={store()}>
           <LayoutPages>
             <App />
           </LayoutPages>

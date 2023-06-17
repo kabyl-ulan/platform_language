@@ -1,8 +1,8 @@
 import React from "react";
 import SubDropDown from "./SubDropDownMenu";
-import { ICategory } from "../../redux/getAllCategoriesApi";
+import { ICategoryAll } from "../../redux/getAllCategoriesApi";
 
-const DropDownMenu = ({ categories }: { categories: ICategory[] }) => {
+const DropDownMenu = ({ categories }: { categories: ICategoryAll[] }) => {
   return (
     <div>
       {categories.map((el) => (

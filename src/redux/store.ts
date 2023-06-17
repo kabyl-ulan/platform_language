@@ -1,18 +1,29 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 //local
 import { getAllCategoriesApi } from "./getAllCategoriesApi";
 import openBurger from "./burger-menu/reducer";
+import categories from "./categories/reducer";
+import subCategories from "./subCategories/reducer";
 
-export const store = configureStore({
-  reducer: {
-    [getAllCategoriesApi.reducerPath]: getAllCategoriesApi.reducer,
-    openBurger,
-  },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(getAllCategoriesApi.middleware),
+const rootReducer = combineReducers({
+  [getAllCategoriesApi.reducerPath]: getAllCategoriesApi.reducer,
+  openBurger,
+  categories,
+  subCategories,
 });
 
-export type RootState = ReturnType<typeof store.getState>;
-export const useAppDispatch = () => useDispatch();
+export const store = () => {
+  return configureStore({
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(getAllCategoriesApi.middleware),
+  });
+};
+
+export type RootState = ReturnType<typeof rootReducer>;
+export type AppStore = ReturnType<typeof store>;
+export type AppDispatch = AppStore["dispatch"];
+export const useAppDispatch = () => useDispatch<AppDispatch>();
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
