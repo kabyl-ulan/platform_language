@@ -13,7 +13,6 @@ const AdminHeader: FC = () => {
       alignItems="center"
       justifyContent="space-between"
       py="15px"
-      borderBottom="1px"
     >
       <LogoHome link="/admin/order" />
       <Text fontSize="26px">Админ панел</Text>

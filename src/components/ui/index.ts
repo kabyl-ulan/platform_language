@@ -8,17 +8,23 @@ export { default as Modals } from "./Modals";
 export { default as Images } from "./Images";
 
 //Buttons
-export { default as Btn } from "./Btn";
+export { default as Btn } from "./buttons/Btn";
+export { default as BtnChange } from "./buttons/BtnChange";
+export { default as BtnDelete } from "./buttons/BtnDelete";
+export { default as BtnAdd } from "./buttons/BtnAdd";
 
 //Inputs
-export { default as Inputs } from "./Inputs";
-export { default as InputsType } from "./InputsType";
+export { default as Inputs } from "./inputs/Inputs";
+export { default as InputsType } from "./inputs/InputsType";
 
 //Eye input
-export { default as EyeInput } from "./EyeInput";
+export { default as EyeInput } from "./inputs/EyeInput";
 
 //login or register
 export { default as LoginOrRegister } from "./LoginOrRegister";
 
 //textError
 export { default as TextError } from "./TextError";
+
+//table
+export { default as Tables } from "./Tables";

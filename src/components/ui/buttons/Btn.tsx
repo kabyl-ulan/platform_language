@@ -1,14 +1,6 @@
-import { Button, ButtonProps } from "@chakra-ui/react";
-import { Component, ReactElement, ReactNode } from "react";
-
-type BtnComponent = {
-  text: string;
-  onClick?: () => void;
-  rightIcon?: ReactElement;
-  isLoading?: boolean;
-  p?: string | any;
-  bg?: string;
-} & ButtonProps;
+import { Button } from "@chakra-ui/react";
+import { Component, ReactNode } from "react";
+import { BtnComponent } from "./interface";
 
 class Btn extends Component<BtnComponent> {
   render(): ReactNode {
