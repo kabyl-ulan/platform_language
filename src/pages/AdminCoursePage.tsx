@@ -1,10 +1,10 @@
 import React from "react";
-import { AdminComponent } from "../components";
+import { AdminComponent, AllAdminCourse } from "../components";
 
 const AdminCoursePage = () => {
   return (
     <>
-      <AdminComponent children="course" />
+      <AdminComponent children={<AllAdminCourse />} />
     </>
   );
 };
