@@ -16,3 +16,11 @@ export interface ICourseState {
   courses: ICourses;
   error: string | any;
 }
+
+export type InputsCourse = {
+  categoryId: number;
+  courseName: string;
+  description: string;
+  price: number;
+  author: string;
+};

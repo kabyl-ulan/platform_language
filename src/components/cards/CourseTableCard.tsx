@@ -4,12 +4,15 @@ import React, { FC } from "react";
 //local
 import { ICourseContent } from "../../redux/course/interfaces";
 import { BtnChange, BtnDelete, DefaultImage } from "../ui";
+import { useAppDispatch } from "../../redux/store";
+import { deleteCourse } from "../../redux/course/action";
 
 type ICourseTableCard = {
   course: ICourseContent;
 };
 
 const CourseTableCard: FC<ICourseTableCard> = ({ course }) => {
+  const dispatch = useAppDispatch();
   return (
     <>
       <Tr>
@@ -21,7 +24,7 @@ const CourseTableCard: FC<ICourseTableCard> = ({ course }) => {
           <BtnChange />
         </Td>
         <Td>
-          <BtnDelete />
+          <BtnDelete onClick={() => dispatch(deleteCourse(course.id))} />
         </Td>
       </Tr>
     </>

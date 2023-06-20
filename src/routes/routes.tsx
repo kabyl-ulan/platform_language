@@ -18,6 +18,7 @@ import AdminUsersPage from "../pages/AdminUsersPage";
 import MyAccountPage from "../pages/MyAccountPage";
 import MyCoursesPage from "../pages/MyCoursesPage";
 import AdminSubCategoriesPage from "../pages/AdminSubCategoriesPage";
+import AdminAddCourse from "../pages/AdminAddCourse";
 
 export const routes: RouteProps[] = [
   {
@@ -47,6 +48,10 @@ export const routes: RouteProps[] = [
   {
     path: "/courses/:idCategory",
     element: <CoursesInByIdPage />,
+  },
+  {
+    path: "/admin/addCourse/:idCategory",
+    element: <AdminAddCourse />,
   },
   {
     path: "/courseDetail/:idCourse",

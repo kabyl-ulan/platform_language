@@ -11,3 +11,5 @@ export { default as AddCategory } from "./categories/AddCategory";
 
 //changeCategory
 export { default as ChangeCategory } from "./categories/ChangeCategory";
+
+export { default as AddCourse } from "./AddCourse";

@@ -14,9 +14,11 @@ import { useHelpLocal } from "../../redux/helpLocal/hook";
 import { setIdCategory, setIdSubCategory } from "../../redux/helpLocal/action";
 import { getSubCategories } from "../../redux/subCategories/action";
 import { Pagination } from "../pagination";
+import { useNavigate } from "react-router-dom";
 
 const AllAdminCourse: FC = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const { isLoading, courses, error } = useCourses();
   const { categories } = useCategories();
@@ -81,7 +83,7 @@ const AllAdminCourse: FC = () => {
           defaultValue={idPodCategory}
           onChange={subCategoryChange}
         />
-        <BtnAdd />
+        <BtnAdd onClick={() => navigate(`/admin/addCourse/${idPodCategory}`)} />
       </Box>
       <Tables
         thead={
@@ -95,6 +97,7 @@ const AllAdminCourse: FC = () => {
         tbody={currentTableDate.map((el, idx) => (
           <CourseTableCard key={idx} course={el} />
         ))}
+        tcaption={currentTableDate.length === 0 ? "Курсов нет" : ""}
       />
       <Box py="10px" display="flex" justifyContent="center">
         <Pagination
