@@ -6,6 +6,7 @@ export { default as Modals } from "./Modals";
 
 //Images
 export { default as Images } from "./Images";
+export { default as DefaultImage } from "./DefaultImage";
 
 //Buttons
 export { default as Btn } from "./buttons/Btn";
@@ -28,3 +29,6 @@ export { default as TextError } from "./TextError";
 
 //table
 export { default as Tables } from "./Tables";
+
+//selects
+export { default as Selects } from "./Selects";

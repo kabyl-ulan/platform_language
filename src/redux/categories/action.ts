@@ -5,7 +5,7 @@ import PRIVATE_API, { PUBLIC_API } from "../../api/api";
 import { AppDispatch } from "../store";
 import { ICategory, ICategoryAdd } from "./interfaces";
 
-export const fetchCategoriesSuccess = createAction(
+export const fetchCategoriesSuccess = createAction<ICategory[]>(
   "categories/fetchCategoriesSuccess"
 );
 
@@ -13,7 +13,7 @@ export const fetchCategoriesLoading = createAction(
   "categories/fetchCategoriesLoading"
 );
 
-export const fetchCategoriesError = createAction(
+export const fetchCategoriesError = createAction<string>(
   "categories/fetchCategoriesError"
 );
 

@@ -5,3 +5,5 @@ export { default as TeacherCard } from "./TeacherCard";
 export { default as CategoriesCard } from "./CategoriesCard";
 
 export { default as UsersTableCard } from "./UsersTableCard";
+
+export { default as CourseTableCard } from "./CourseTableCard";

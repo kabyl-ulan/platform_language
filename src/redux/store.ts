@@ -7,6 +7,8 @@ import openBurger from "./burger-menu/reducer";
 import categories from "./categories/reducer";
 import subCategories from "./subCategories/reducer";
 import users from "./users/reducer";
+import courses from "./course/reducer";
+import helpLocal from "./helpLocal/reducer";
 
 const rootReducer = combineReducers({
   [getAllCategoriesApi.reducerPath]: getAllCategoriesApi.reducer,
@@ -14,6 +16,8 @@ const rootReducer = combineReducers({
   categories,
   subCategories,
   users,
+  courses,
+  helpLocal,
 });
 
 export const store = () => {
